@@ -1,0 +1,15 @@
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.exe
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.deps.json
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.runtimeconfig.json
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.runtimeconfig.dev.json
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.dll
+E:\CsharpTraining\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.pdb
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csprojAssemblyReference.cache
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.Form1.resources
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csproj.GenerateResource.cache
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.AssemblyInfoInputs.cache
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.AssemblyInfo.cs
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csproj.CoreCompileInputs.cache
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.dll
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.pdb
+E:\CsharpTraining\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.genruntimeconfig.cache
