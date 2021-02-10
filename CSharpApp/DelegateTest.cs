@@ -10,5 +10,10 @@ namespace CSharpApp
         {
             return "Method1";
         }
+
+        public string Method2(int argument1)
+        {
+            return "Method2";
+        }
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CsharpTraining\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
+      "projectUniqueName": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
       "projectName": "CSharpApp",
-      "projectPath": "E:\\CsharpTraining\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
+      "projectPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
       "packagesPath": "C:\\Users\\Vic\\.nuget\\packages\\",
-      "outputPath": "E:\\CsharpTraining\\CSharpApp\\CSharpApp\\obj\\",
+      "outputPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vic\\AppData\\Roaming\\NuGet\\NuGet.Config",
