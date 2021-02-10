@@ -33,18 +33,22 @@ namespace CSharpApp
         }
         #endregion
 
-        #region Easy
+        #region LeetCodeEasy
         Easy Easy;
         
-        private void button_GetAnswer_Click(object sender, EventArgs e)
+        private void button_LeetCodeEasy_Click(object sender, EventArgs e)
         {
             var result = Easy.IsPalindrome(12321);
 
             return;
         }
+
+
         #endregion
 
+        private void button_Nullable_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
