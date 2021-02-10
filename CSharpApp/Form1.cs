@@ -19,13 +19,16 @@ namespace CSharpApp
 
         #region Delegate
         DelegateTest DelegateTest;
-        public MyDelegate MyDelegateObject;
         public delegate string MyDelegate(int argument);
-        
-        private void button_Delegate_Click(object sender, EventArgs e)
+        public MyDelegate MyDelegateObject;
+
+        private void button_DelegateTest_Click(object sender, EventArgs e)
         {
+            //委派兩個函式
+
             DelegateTest = new DelegateTest();
-            MyDelegateObject = DelegateTest.Method1;
+            MyDelegateObject += DelegateTest.Method1;
+            MyDelegateObject += DelegateTest.Method2;
 
             var result = MyDelegateObject.Invoke(123);
 
@@ -33,18 +36,60 @@ namespace CSharpApp
         }
         #endregion
 
+        #region Event
+        EventTest EventTest;
+        public delegate void ClickEventHandler(object sender, MyEventArgs e);
+        public event ClickEventHandler ClickEvent;
+        private void button_EventTest_Click(object sender, EventArgs e)
+        {
+            EventTest = new EventTest();
+            ClickEvent += EventTest.button1_Click;
+            ClickEvent += EventTest.button2_Click;
+
+            var myEventArgs = new MyEventArgs("ABC");
+
+            ClickEvent(this, myEventArgs);
+
+            return;
+        }
+        public class MyEventArgs : EventArgs
+        {
+            private string arg1;
+            public MyEventArgs(string arg1) : base()
+            {
+                this.arg1 = arg1;
+            }
+          
+            public string Arg1
+            {
+                get 
+                { 
+                    return arg1; 
+                }
+            }
+        }   
+
+        #endregion
+
         #region Easy
         Easy Easy;
         
         private void button_GetAnswer_Click(object sender, EventArgs e)
         {
-            var result = Easy.IsPalindrome(12321);
+            Easy = new Easy();
+
+            var strs = new List<string>();
+
+            strs.Add("c");
+            strs.Add("acc");
+            strs.Add("ccc");
+
+            var result = Easy.LongestCommonPrefix(strs.ToArray());
 
             return;
         }
+
+
         #endregion
-
-
-
     }
 }

@@ -7,7 +7,7 @@ namespace CSharpApp
 {
     public class Easy
     {
-        //Easy01
+        //1. Two Sum
         public int[] TwoSum(int[] nums, int target)
         {
             var answers = new List<Array>();
@@ -39,7 +39,7 @@ namespace CSharpApp
             return (int[])answers[0];
         }
 
-        //Easy02
+        //7. Reverse Integer
         public int ReverseInteger(int x)
         {
             if (x > Int32.MaxValue || x < Int32.MinValue)
@@ -115,7 +115,7 @@ namespace CSharpApp
             return result;        
         }
 
-        //Easy03
+        //9. Palindrome Number
         public bool IsPalindrome(int x)
         {
             var stringList = new List<string>();
@@ -143,6 +143,145 @@ namespace CSharpApp
             }
 
             return true;
+        }
+
+        //13. Roman to Integer
+        public int RomanToInt(string s)
+        {
+            s = s.Replace("IV", "IIII");
+            s = s.Replace("IX", "VIIII");
+            s = s.Replace("XL", "XXXX");
+            s = s.Replace("XC", "LXXXX");
+            s = s.Replace("CD", "CCCC");
+            s = s.Replace("CM", "DCCCC");
+
+            var inputs = s.ToCharArray().ToList();
+
+            var transferedInputs = new List<int>();
+
+            var result = 0;
+
+            foreach (var input in inputs)
+            {
+                result +=TransferToInteger(input.ToString());
+            }
+
+            return result;
+        }
+        private int TransferToInteger(string romanNumeral)
+        {
+            switch (romanNumeral)
+            {
+                case "I":    
+                    {
+                        return 1;
+                    }
+
+                case "V":
+                    {
+                        return 5;
+                    }
+
+                case "X":
+                    {
+                        return 10;
+                    }
+
+                case "L":
+                    {
+                        return 50;
+                    }
+
+                case "C":
+                    {
+                        return 100;
+                    }
+
+                case "D":
+                    {
+                        return 500;
+                    }
+
+                case "M":
+                    {
+                        return 1000;
+                    }
+            }
+
+            throw new Exception("Unrecognizable");
+        }
+
+        //14.Longest Common Prefix
+        public string LongestCommonPrefix(string[] strs)
+        {
+            if (strs.Count() == 0)
+            {
+                return string.Empty;
+            }
+            else if(strs.Count() == 1)
+            {
+                return strs[0];
+            }
+
+            var splitStrs = new List<List<char>>();
+
+            foreach (var str in strs)
+            {
+                splitStrs.Add(str.ToCharArray().ToList());
+            }
+
+            var sameChars = new List<string>();
+
+            var firstSplitStr = splitStrs[0];
+
+            for (int i = 0; i < firstSplitStr.Count; i++)
+            {
+                var sameChar = string.Empty;
+
+                foreach (var splitStr in splitStrs)
+                {
+                    if (splitStr == firstSplitStr)
+                    {
+                        continue;
+                    }
+
+                    if (firstSplitStr.Count > splitStr.Count && i + 1 > splitStr.Count)
+                    {
+                        sameChar = null;
+
+                        break;
+                    }
+
+                    if (firstSplitStr[i] == splitStr[i])
+                    {
+                        sameChar = firstSplitStr[i].ToString();
+                    }
+                    else
+                    {
+                        sameChar = null;
+
+                        break;
+                    }
+                }
+
+                if (sameChar != null)
+                {
+                    sameChars.Add(sameChar);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            var result = string.Empty;
+
+            foreach (var sameChar in sameChars)
+            {
+                result += sameChar;
+            }
+
+            return result;
         }
     }
 }
