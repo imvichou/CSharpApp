@@ -74,7 +74,7 @@ namespace CSharpApp
         #region Easy
         Easy Easy;
         
-        private void button_GetAnswer_Click(object sender, EventArgs e)
+        private void button_LeetCodeEasy_Click(object sender, EventArgs e)
         {
             Easy = new Easy();
 
