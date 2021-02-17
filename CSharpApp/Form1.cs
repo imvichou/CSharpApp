@@ -91,5 +91,22 @@ namespace CSharpApp
 
 
         #endregion
+
+        #region Medium
+        Medium Medium;
+
+        private void button_LeetCodeMedium_Click(object sender, EventArgs e)
+        {
+            Medium = new Medium();
+
+            var listNode1 = Medium.GetLinkedListByString("9");
+            //var listNode2 = Medium.GetLinkedListByString("");
+            var listNode2 = Medium.GetLinkedListByString("9");
+
+            var listNode3 = Medium.AddTwoNumbers(listNode1, listNode2);
+
+            return;
+        }
+        #endregion
     }
 }
