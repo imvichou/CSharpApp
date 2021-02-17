@@ -30,11 +30,11 @@ namespace CSharpApp
         private void InitializeComponent()
         {
             this.button_LeetCodeEasy = new System.Windows.Forms.Button();
-            this.button_Delegate = new System.Windows.Forms.Button();
+            this.button_DelegateTest = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button_Event = new System.Windows.Forms.Button();
+            this.button_EventTest = new System.Windows.Forms.Button();
             this.button_Nullable = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,30 +42,30 @@ namespace CSharpApp
             // 
             this.button_LeetCodeEasy.Location = new System.Drawing.Point(3, 3);
             this.button_LeetCodeEasy.Name = "button_LeetCodeEasy";
-            this.button_LeetCodeEasy.Size = new System.Drawing.Size(75, 23);
+            this.button_LeetCodeEasy.Size = new System.Drawing.Size(112, 23);
             this.button_LeetCodeEasy.TabIndex = 0;
             this.button_LeetCodeEasy.Text = "LeetCode Easy";
             this.button_LeetCodeEasy.UseVisualStyleBackColor = true;
             this.button_LeetCodeEasy.Click += new System.EventHandler(this.button_LeetCodeEasy_Click);
             // 
-            // button_Delegate
+            // button_DelegateTest
             // 
-            this.button_Delegate.Location = new System.Drawing.Point(3, 32);
-            this.button_Delegate.Name = "button_Delegate";
-            this.button_Delegate.Size = new System.Drawing.Size(75, 23);
-            this.button_Delegate.TabIndex = 3;
-            this.button_Delegate.Text = "Delegate委派";
-            this.button_Delegate.UseVisualStyleBackColor = true;
-            this.button_Delegate.Click += new System.EventHandler(this.button_Delegate_Click);
+            this.button_DelegateTest.Location = new System.Drawing.Point(3, 32);
+            this.button_DelegateTest.Name = "button_DelegateTest";
+            this.button_DelegateTest.Size = new System.Drawing.Size(112, 23);
+            this.button_DelegateTest.TabIndex = 3;
+            this.button_DelegateTest.Text = "DelegateTest";
+            this.button_DelegateTest.UseVisualStyleBackColor = true;
+            this.button_DelegateTest.Click += new System.EventHandler(this.button_DelegateTest_Click);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.button_Delegate, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button_DelegateTest, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button_LeetCodeEasy, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_Event, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.button_EventTest, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button_Nullable, 0, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -80,22 +80,15 @@ namespace CSharpApp
             this.tableLayoutPanel1.Size = new System.Drawing.Size(159, 222);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // label3
+            // button_EventTest
             // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "label3";
-            // 
-            // button_Event
-            // 
-            this.button_Event.Location = new System.Drawing.Point(3, 61);
-            this.button_Event.Name = "button_Event";
-            this.button_Event.Size = new System.Drawing.Size(75, 23);
-            this.button_Event.TabIndex = 5;
-            this.button_Event.Text = "Event";
-            this.button_Event.UseVisualStyleBackColor = true;
+            this.button_EventTest.Location = new System.Drawing.Point(3, 61);
+            this.button_EventTest.Name = "button_EventTest";
+            this.button_EventTest.Size = new System.Drawing.Size(75, 23);
+            this.button_EventTest.TabIndex = 5;
+            this.button_EventTest.Text = "EventTest";
+            this.button_EventTest.UseVisualStyleBackColor = true;
+            this.button_EventTest.Click += new System.EventHandler(this.button_EventTest_Click);
             // 
             // button_Nullable
             // 
@@ -106,6 +99,14 @@ namespace CSharpApp
             this.button_Nullable.Text = "Nullable";
             this.button_Nullable.UseVisualStyleBackColor = true;
             this.button_Nullable.Click += new System.EventHandler(this.button_Nullable_Click);
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "label3";
             // 
             // Form1
             // 
@@ -124,10 +125,10 @@ namespace CSharpApp
         #endregion
 
         private System.Windows.Forms.Button button_LeetCodeEasy;
-        private System.Windows.Forms.Button button_Delegate;
+        private System.Windows.Forms.Button button_DelegateTest;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button_Event;
+        private System.Windows.Forms.Button button_EventTest;
         private System.Windows.Forms.Button button_Nullable;
         private System.Windows.Forms.Button e;
     }

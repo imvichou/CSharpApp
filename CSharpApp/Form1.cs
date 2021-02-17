@@ -17,7 +17,7 @@ namespace CSharpApp
             InitializeComponent();
         }
 
-        #region Delegate
+        #region DelegateTest
         DelegateTest DelegateTest;
         public delegate string MyDelegate(int argument);
         public MyDelegate MyDelegateObject;
@@ -36,7 +36,7 @@ namespace CSharpApp
         }
         #endregion
 
-        #region Event
+        #region EventTest
         EventTest EventTest;
         public delegate void ClickEventHandler(object sender, MyEventArgs e);
         public event ClickEventHandler ClickEvent;
@@ -92,9 +92,11 @@ namespace CSharpApp
 
         #endregion
 
+        #region Nullable
         private void button_Nullable_Click(object sender, EventArgs e)
         {
-
+            Nullable.GetVariableType();
         }
+        #endregion
     }
 }
