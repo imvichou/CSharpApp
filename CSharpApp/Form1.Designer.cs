@@ -32,9 +32,10 @@ namespace CSharpApp
             this.button_LeetCodeEasy = new System.Windows.Forms.Button();
             this.button_Delegate = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.button_Event = new System.Windows.Forms.Button();
             this.button_Nullable = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@ namespace CSharpApp
             // 
             this.button_LeetCodeEasy.Location = new System.Drawing.Point(3, 3);
             this.button_LeetCodeEasy.Name = "button_LeetCodeEasy";
-            this.button_LeetCodeEasy.Size = new System.Drawing.Size(75, 23);
+            this.button_LeetCodeEasy.Size = new System.Drawing.Size(129, 23);
             this.button_LeetCodeEasy.TabIndex = 0;
             this.button_LeetCodeEasy.Text = "LeetCode Easy";
             this.button_LeetCodeEasy.UseVisualStyleBackColor = true;
@@ -67,6 +68,7 @@ namespace CSharpApp
             this.tableLayoutPanel1.Controls.Add(this.button_LeetCodeEasy, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_Event, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button_Nullable, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -79,14 +81,6 @@ namespace CSharpApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(159, 222);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "label3";
             // 
             // button_Event
             // 
@@ -107,24 +101,23 @@ namespace CSharpApp
             this.button_Nullable.UseVisualStyleBackColor = true;
             this.button_Nullable.Click += new System.EventHandler(this.button_Nullable_Click);
             // 
-            // label4
+            // button1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "LeetCode Medium";
+            this.button1.Location = new System.Drawing.Point(3, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "LeetCode Medium";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_LeetCodeMedium_Click);
             // 
-            // button_LeetCodeMedium
+            // label3
             // 
-            this.button_LeetCodeMedium.Location = new System.Drawing.Point(3, 155);
-            this.button_LeetCodeMedium.Name = "button_LeetCodeMedium";
-            this.button_LeetCodeMedium.Size = new System.Drawing.Size(75, 23);
-            this.button_LeetCodeMedium.TabIndex = 7;
-            this.button_LeetCodeMedium.Text = "button1";
-            this.button_LeetCodeMedium.UseVisualStyleBackColor = true;
-            this.button_LeetCodeMedium.Click += new System.EventHandler(this.button_LeetCodeMedium_Click);
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "label3";
             // 
             // Form1
             // 
@@ -149,6 +142,7 @@ namespace CSharpApp
         private System.Windows.Forms.Button button_Event;
         private System.Windows.Forms.Button button_Nullable;
         private System.Windows.Forms.Button e;
+        private System.Windows.Forms.Button button1;
     }
 }
 

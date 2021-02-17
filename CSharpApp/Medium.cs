@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace CSharpApp
 {
     public class Medium
     {
+        //2. Add Two Numbers
         public class ListNode
         {
             public int val;
@@ -17,7 +19,6 @@ namespace CSharpApp
                 this.next = next;
             }
         }
-        //2. Add Two Numbers
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             var reverseInt1 = GetReverseInt(GetIntByLinkedList(l1));
@@ -247,5 +248,54 @@ namespace CSharpApp
             return string3;
         }
 
+
+        //11. Container With Most Water (Time Limit Exceeded)
+        public int MaxArea(int[] height)
+        {
+            var maxArea = 0;
+
+            var runTimes = 0;
+
+            for (int i = 0; i < height.Length; i++)
+            {
+                for (int j = height.Length - 1; j >= 0; j--)
+                {
+                    if (i == j)
+                    {
+                        continue;
+                    }
+                    else if (i > j)
+                    {
+                        break;
+                    }
+
+                    runTimes++;
+
+                    var x1 = i + 1;
+                    var x2 = j + 1;
+
+                    if (height[i] >= height[j])
+                    {
+                        if(maxArea < GetArea(x1, x2, height[j]))                      
+                        {
+                            maxArea = GetArea(x1, x2, height[j]);
+                        }
+                    }
+                    else
+                    {
+                        if (maxArea < GetArea(x1, x2, height[i]))
+                        {
+                            maxArea = GetArea(x1, x2, height[i]);
+                        }
+                    }
+                }
+            }
+
+            return maxArea;
+        }
+        public int GetArea(int x1, int x2, int y1)
+        {
+            return Math.Abs(x1 - x2) * y1;
+        }
     }
 }

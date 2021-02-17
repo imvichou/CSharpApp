@@ -22,7 +22,7 @@ namespace CSharpApp
         public delegate string MyDelegate(int argument);
         public MyDelegate MyDelegateObject;
 
-        private void button_DelegateTest_Click(object sender, EventArgs e)
+        private void button_Delegate_Click(object sender, EventArgs e)
         {
             //委派兩個函式
 
@@ -99,13 +99,18 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var listNode1 = Medium.GetLinkedListByString("9");
-            //var listNode2 = Medium.GetLinkedListByString("");
-            var listNode2 = Medium.GetLinkedListByString("9");
+            var array = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
 
-            var listNode3 = Medium.AddTwoNumbers(listNode1, listNode2);
+            var maxArea = Medium.MaxArea(array);
 
             return;
+        }
+        #endregion
+
+        #region Nullable
+        private void button_Nullable_Click(object sender, EventArgs e)
+        {
+            Nullable.GetVariableType();
         }
         #endregion
     }
