@@ -252,50 +252,77 @@ namespace CSharpApp
         //11. Container With Most Water (Time Limit Exceeded)
         public int MaxArea(int[] height)
         {
-            var maxArea = 0;
-
             var runTimes = 0;
 
-            for (int i = 0; i < height.Length; i++)
+            var h = height;
+            int i = 0, j = h.Length - 1, result = 0;
+
+            while (i < j)
             {
-                for (int j = height.Length - 1; j >= 0; j--)
+                result = Math.Max(result, Math.Min(h[i], h[j]) * (j - i));
+
+                //從最寬開始思考，每次往內移一格，移動的那一格只能是短邊，此為唯一邏輯
+                if (h[i] < h[j])
                 {
-                    if (i == j)
-                    {
-                        continue;
-                    }
-                    else if (i > j)
-                    {
-                        break;
-                    }
+                    i++;
+                }
+                else
+                {
+                    j--;
+                }
 
-                    runTimes++;
+                runTimes++;
+            }
 
-                    var x1 = i + 1;
-                    var x2 = j + 1;
+            return result;
+        }
 
-                    if (height[i] >= height[j])
+        //3. Longest Substring Without Repeating Characters
+        public int LengthOfLongestSubstring(string s)
+        {
+            var charArray = s.ToCharArray();
+
+            var maxLength = 0;
+
+            var length = 0;
+
+            var chekcHashSet = new Dictionary<char, List<int>>();
+
+            for (int i = 0; i < charArray.Length; i++)
+            {
+                if (!chekcHashSet.ContainsKey(charArray[i]))
+                {
+                    chekcHashSet[charArray[i]] = new List<int>();
+
+                    chekcHashSet[charArray[i]].Add(i);
+
+                    length++;
+
+                    if(maxLength < length)
                     {
-                        if(maxArea < GetArea(x1, x2, height[j]))                      
-                        {
-                            maxArea = GetArea(x1, x2, height[j]);
-                        }
+                        maxLength = length;
                     }
-                    else
+                }
+                else
+                {
+                    var index = chekcHashSet[charArray[i]];
+
+                    length = 0;
+
+                    chekcHashSet.Clear();
+
+                    for (int j = index.Last() + 1; j < i + 1; j++)
                     {
-                        if (maxArea < GetArea(x1, x2, height[i]))
-                        {
-                            maxArea = GetArea(x1, x2, height[i]);
-                        }
+                        chekcHashSet.Add(charArray[j], new List<int>());
+
+                        chekcHashSet[charArray[j]].Add(j);
+
+                        length++;
                     }
                 }
             }
 
-            return maxArea;
-        }
-        public int GetArea(int x1, int x2, int y1)
-        {
-            return Math.Abs(x1 - x2) * y1;
+            return maxLength;
         }
     }
 }
