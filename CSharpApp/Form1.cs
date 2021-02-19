@@ -99,7 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.LengthOfLongestSubstring("abcabcbb");
+            var result = Medium.CheckPalindromic("DABCBAD");
 
             return;
         }
@@ -109,6 +109,20 @@ namespace CSharpApp
         private void button_Nullable_Click(object sender, EventArgs e)
         {
             Nullable.GetVariableType();
+        }
+        #endregion
+
+        #region Algorithm
+        Algorithm Algorithm;
+        private void button_Alogorithm_Click(object sender, EventArgs e)
+        {
+            Algorithm = new Algorithm();
+
+            int[] array = { 1000, 11, 445, 1, 330, 3000 };
+
+            Algorithm.MainByCompareinPairs(array);
+
+            return;
         }
         #endregion
     }

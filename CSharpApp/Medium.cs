@@ -248,8 +248,7 @@ namespace CSharpApp
             return string3;
         }
 
-
-        //11. Container With Most Water (Time Limit Exceeded)
+        //11. Container With Most Water
         public int MaxArea(int[] height)
         {
             var runTimes = 0;
@@ -323,6 +322,151 @@ namespace CSharpApp
             }
 
             return maxLength;
+        }
+
+        //29. Divide Two Integers (Time Limit Exceeded)
+        public int Divide(int dividend, int divisor)
+        {
+            //要拆成二進位來處理
+            var quotient = 0;
+            var dividendIsNegative = false;
+            var divisorIsNegative = false; 
+
+            if (dividend < 0)
+            {
+                dividendIsNegative = true;
+
+                if (dividend == int.MinValue && divisor == -1)
+                {
+                    return int.MaxValue;
+                }
+            }
+
+            if (divisor < 0)
+            {
+                divisorIsNegative = true;
+            }
+
+            if (!dividendIsNegative && !divisorIsNegative)
+            {
+                while (dividend > 0 && dividend - divisor >= 0)
+                {
+                    dividend = dividend - divisor;
+
+                    quotient++;
+                }
+            }
+
+            if (dividendIsNegative && !divisorIsNegative)
+            {
+                while (dividend < 0 && dividend + divisor <= 0)
+                {
+                    dividend = dividend + divisor;
+                    
+                    quotient--;
+                }
+            }
+
+            if (!dividendIsNegative && divisorIsNegative)
+            {
+                while (dividend > 0 && dividend + divisor >= 0)
+                {
+                    dividend = dividend + divisor;
+
+                    quotient--;
+                }
+            }
+
+            if (dividendIsNegative && divisorIsNegative)
+            {
+                while (dividend < 0 && dividend - divisor <= 0)
+                {
+                    dividend = dividend - divisor;
+
+                    quotient++;
+                }
+            }
+
+            return quotient;
+        }
+
+        //4. Median of Two Sorted Arrays
+        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            //O = logm* logn
+
+            //leftm < midm < rightm leftn < midn < rightn
+
+            //if(midn > midm) rightn > midm, if(midn < midm) leftn < midm
+
+            //new array leftm < midim  < midn < rightn 
+
+            //(m+n)/2 new median position
+
+            //odd 
+            return 0;
+        }
+
+        //5. Longest Palindromic Substring
+        public string LongestPalindrome(string s)
+        {
+            var charArray = s.ToCharArray();
+
+            return "";
+        }
+        public bool CheckPalindromic(string s)
+        {
+            var charArray = s.ToCharArray();
+
+            var length = charArray.Length;
+
+            var leftArray = new List<char>();
+
+            var rightArray = new List<char>();
+
+            //oven
+            if (charArray.Length % 2 == 0)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    if (i <= length / 2 - 1)
+                    {
+                        leftArray.Add(charArray[i]);
+                    }
+
+                    if (i > length / 2 - 1)
+                    {
+                        rightArray.Add(charArray[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    if (i < length / 2 - 1)
+                    {
+                        leftArray.Add(charArray[i]);
+                    }
+
+                    if (i > (int)Math.Ceiling(length / 2.0) - 1)
+                    {
+                        rightArray.Add(charArray[i]);
+                    }
+                }
+            }
+
+            rightArray.Reverse();
+
+            for (int i = 0; i < leftArray.Count; i++)
+            {
+                if (leftArray[i] != rightArray[i])            
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

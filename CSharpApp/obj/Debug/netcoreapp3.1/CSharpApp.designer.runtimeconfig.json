@@ -6,7 +6,7 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Hougana\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Vic\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Vic\\.nuget\\packages"
     ],
     "configProperties": {

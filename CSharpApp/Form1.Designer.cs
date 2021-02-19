@@ -34,8 +34,9 @@ namespace CSharpApp
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button_Event = new System.Windows.Forms.Button();
             this.button_Nullable = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_LeetCodeMedium = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button_Alogorithm = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,11 +65,12 @@ namespace CSharpApp
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.button_Alogorithm, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.button_Delegate, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button_LeetCodeEasy, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_Event, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button_Nullable, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.button_LeetCodeMedium, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -101,15 +103,15 @@ namespace CSharpApp
             this.button_Nullable.UseVisualStyleBackColor = true;
             this.button_Nullable.Click += new System.EventHandler(this.button_Nullable_Click);
             // 
-            // button1
+            // button_LeetCodeMedium
             // 
-            this.button1.Location = new System.Drawing.Point(3, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "LeetCode Medium";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_LeetCodeMedium_Click);
+            this.button_LeetCodeMedium.Location = new System.Drawing.Point(3, 119);
+            this.button_LeetCodeMedium.Name = "button_LeetCodeMedium";
+            this.button_LeetCodeMedium.Size = new System.Drawing.Size(129, 23);
+            this.button_LeetCodeMedium.TabIndex = 8;
+            this.button_LeetCodeMedium.Text = "LeetCode Medium";
+            this.button_LeetCodeMedium.UseVisualStyleBackColor = true;
+            this.button_LeetCodeMedium.Click += new System.EventHandler(this.button_LeetCodeMedium_Click);
             // 
             // label3
             // 
@@ -118,6 +120,16 @@ namespace CSharpApp
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "label3";
+            // 
+            // button_Alogorithm
+            // 
+            this.button_Alogorithm.Location = new System.Drawing.Point(3, 149);
+            this.button_Alogorithm.Name = "button_Alogorithm";
+            this.button_Alogorithm.Size = new System.Drawing.Size(75, 23);
+            this.button_Alogorithm.TabIndex = 9;
+            this.button_Alogorithm.Text = "Algorithm";
+            this.button_Alogorithm.UseVisualStyleBackColor = true;
+            this.button_Alogorithm.Click += new System.EventHandler(this.button_Alogorithm_Click);
             // 
             // Form1
             // 
@@ -142,7 +154,8 @@ namespace CSharpApp
         private System.Windows.Forms.Button button_Event;
         private System.Windows.Forms.Button button_Nullable;
         private System.Windows.Forms.Button e;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_LeetCodeMedium;
+        private System.Windows.Forms.Button button_Alogorithm;
     }
 }
 

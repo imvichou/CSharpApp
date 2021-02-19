@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace CSharpApp
@@ -9,164 +10,161 @@ namespace CSharpApp
         //Maximum and minimum of an array using minimum number of comparisons
         class Pair
         {
-            public int min;
-            public int max;
+            public int Min;
+            public int Max;
         }
 
         //(Simple Linear Search) 簡單線性搜尋/逐一比較
         //Initialize values of min and max as minimum and maximum of the first two elements respectively.Starting from 3rd, 
         //compare each element with max and min, and change max and min accordingly
         //(i.e., if the element is smaller than min then change min, else if the element is greater than max then change max, else ignore the element)
-        static Pair getMinMax(int[] arr, int n)
+        static Pair getMinMaxBySimpleLinearSearch(int[] array)
         {
-            Pair minmax = new Pair();
+            Pair minMax = new Pair();
             int i;
+
+            int lengthOfArray = array.Length;
 
             /* If there is only one element 
             then return it as min and max both*/
-            if (n == 1)
+            if (lengthOfArray == 1)
             {
-                minmax.max = arr[0];
-                minmax.min = arr[0];
-                return minmax;
+                minMax.Max = array[0];
+                minMax.Min = array[0];
+                return minMax;
             }
 
             /* If there are more than one elements,
             then initialize min and max*/
-            if (arr[0] > arr[1])
+            if (array[0] > array[1])
             {
-                minmax.max = arr[0];
-                minmax.min = arr[1];
+                minMax.Max = array[0];
+                minMax.Min = array[1];
             }
             else
             {
-                minmax.max = arr[1];
-                minmax.min = arr[0];
+                minMax.Max = array[1];
+                minMax.Min = array[0];
             }
 
-            for (i = 2; i < n; i++)
+            for (i = 2; i < lengthOfArray; i++)
             {
-                if (arr[i] > minmax.max)
+                if (array[i] > minMax.Max)
                 {
-                    minmax.max = arr[i];
+                    minMax.Max = array[i];
                 }
-                else if (arr[i] < minmax.min)
+                else if (array[i] < minMax.Min)
                 {
-                    minmax.min = arr[i];
+                    minMax.Min = array[i];
                 }
             }
-            return minmax;
+
+            return minMax;
         }
-        // Driver Code
-        public static void Main(String[] args)
+        public static void MainBySimpleLinearSearch(int[] array)
         {
-            int[] arr = { 1000, 11, 445, 1, 330, 3000 };
-            int arr_size = 6;
-            Pair minmax = getMinMax(arr, arr_size);
-            Console.Write("Minimum element is {0}",
-                                       minmax.min);
-            Console.Write("\nMaximum element is {0}",
-                                         minmax.max);
+            Pair minmax = getMinMaxBySimpleLinearSearch(array);
+            Debug.WriteLine(string.Format("Minimum element is {0}", minmax.Min));
+            Debug.WriteLine(string.Format("Maximum element is {0}", minmax.Max));
         }
 
-        //METHOD 2 (Tournament Method)
+        //METHOD 2 (Tournament Method) 對半比較
         //Divide the array into two parts and compare the maximums and minimums of the two parts to get the maximum and the minimum of the whole array.
-        static Pair getMinMaxByTournamentMethod(int[] arr, int low, int high)
+        static Pair getMinMaxByTournamentMethod(int[] array, int startIndex, int endIndex)
         {
-            Pair minmax = new Pair();
-            Pair mml = new Pair();
-            Pair mmr = new Pair();
+            Pair minMax = new Pair();
+            Pair minMaxLeft = new Pair();
+            Pair minMaxRight = new Pair();
             int mid;
 
             // If there is only one element 
-            if (low == high)
+            if (startIndex == endIndex)
             {
-                minmax.max = arr[low];
-                minmax.min = arr[low];
-                return minmax;
+                minMax.Max = array[startIndex];
+                minMax.Min = array[startIndex];
+                
+                return minMax;
             }
 
             /* If there are two elements */
-            if (high == low + 1)
+            if (startIndex == endIndex + 1)
             {
-                if (arr[low] > arr[high])
+                if (array[startIndex] > array[endIndex])
                 {
-                    minmax.max = arr[low];
-                    minmax.min = arr[high];
+                    minMax.Max = array[startIndex];
+                    minMax.Min = array[endIndex];
                 }
                 else
                 {
-                    minmax.max = arr[high];
-                    minmax.min = arr[low];
+                    minMax.Max = array[endIndex];
+                    minMax.Min = array[startIndex];
                 }
-                return minmax;
+                
+                return minMax;
             }
 
             /* If there are more than 2 elements */
-            mid = (low + high) / 2;
-            mml = getMinMaxByTournamentMethod(arr, low, mid);
-            mmr = getMinMaxByTournamentMethod(arr, mid + 1, high);
+            mid = (startIndex + endIndex) / 2;
+            minMaxLeft = getMinMaxByTournamentMethod(array, startIndex, mid);
+            minMaxRight = getMinMaxByTournamentMethod(array, mid + 1, endIndex);
 
             /* compare minimums of two parts*/
-            if (mml.min < mmr.min)
+            if (minMaxLeft.Min < minMaxRight.Min)
             {
-                minmax.min = mml.min;
+                minMax.Min = minMaxLeft.Min;
             }
             else
             {
-                minmax.min = mmr.min;
+                minMax.Min = minMaxRight.Min;
             }
 
             /* compare maximums of two parts*/
-            if (mml.max > mmr.max)
+            if (minMaxLeft.Max > minMaxRight.Max)
             {
-                minmax.max = mml.max;
+                minMax.Max = minMaxLeft.Max;
             }
             else
             {
-                minmax.max = mmr.max;
+                minMax.Max = minMaxRight.Max;
             }
 
-            return minmax;
+            return minMax;
         }
-
-        /* Driver program to test above function */
-        public static void MainByTournamentMethod(String[] args)
+        public static void MainByTournamentMethod(int[] array)
         {
-            int[] arr = { 1000, 11, 445, 1, 330, 3000 };
-            int arr_size = 6;
-            Pair minmax = getMinMaxByTournamentMethod(arr, 0, arr_size - 1);
-            Console.Write("\nMinimum element is {0}", minmax.min);
-            Console.Write("\nMaximum element is {0}", minmax.max);
-
+            Pair minmax = getMinMaxByTournamentMethod(array, 0, array.Length - 1);
+            Debug.WriteLine(string.Format("Minimum element is {0}", minmax.Min));
+            Debug.WriteLine(string.Format("Maximum element is {0}", minmax.Max));
         }
 
-        //METHOD 3 (Compare in Pairs) 
+        //METHOD 3 (Compare in Pairs) 兩兩比較
         //If n is odd then initialize min and max as first element.
         //If n is even then initialize min and max as minimum and maximum of the first two elements respectively.
         //For rest of the elements, pick them in pairs and compare their
         //maximum and minimum with max and min respectively. 
-        static Pair getMinMaxByCompareinPairs(int[] arr, int n)
+        static Pair getMinMaxByCompareinPairs(int[] array)
         {
             Pair minmax = new Pair();
-            int i;
+            var length = array.Length;
+            int startIndex;
 
             /* If array has even number of elements 
             then initialize the first two elements 
             as minimum and maximum */
-            if (n % 2 == 0)
+            if (length % 2 == 0)
             {
-                if (arr[0] > arr[1])
+                if (array[0] > array[1])
                 {
-                    minmax.max = arr[0];
-                    minmax.min = arr[1];
+                    minmax.Max = array[0];
+                    minmax.Min = array[1];
                 }
                 else
                 {
-                    minmax.min = arr[0];
-                    minmax.max = arr[1];
+                    minmax.Min = array[0];
+                    minmax.Max = array[1];
                 }
-                i = 2;
+
+                startIndex = 2;
             }
 
             /* set the starting index for loop */
@@ -175,55 +173,51 @@ namespace CSharpApp
             maximum */
             else
             {
-                minmax.min = arr[0];
-                minmax.max = arr[0];
-                i = 1;
+                minmax.Min = array[0];
+                minmax.Max = array[0];
+                startIndex = 1;
                 /* set the starting index for loop */
             }
 
             /* In the while loop, pick elements in pair and 
             compare the pair with max and min so far */
-            while (i < n - 1)
+            while (startIndex < length - 1)
             {
-                if (arr[i] > arr[i + 1])
+                if (array[startIndex] > array[startIndex + 1])
                 {
-                    if (arr[i] > minmax.max)
+                    if (array[startIndex] > minmax.Max)
                     {
-                        minmax.max = arr[i];
+                        minmax.Max = array[startIndex];
                     }
-                    if (arr[i + 1] < minmax.min)
+                    if (array[startIndex + 1] < minmax.Min)
                     {
-                        minmax.min = arr[i + 1];
+                        minmax.Min = array[startIndex + 1];
                     }
                 }
                 else
                 {
-                    if (arr[i + 1] > minmax.max)
+                    if (array[startIndex + 1] > minmax.Max)
                     {
-                        minmax.max = arr[i + 1];
+                        minmax.Max = array[startIndex + 1];
                     }
-                    if (arr[i] < minmax.min)
+                    if (array[startIndex] < minmax.Min)
                     {
-                        minmax.min = arr[i];
+                        minmax.Min = array[startIndex];
                     }
                 }
-                i += 2;
+
+                startIndex += 2;
 
                 /* Increment the index by 2 as two 
                 elements are processed in loop */
             }
             return minmax;
         }
-        // Driver Code
-        public static void MainByCompareinPairs(String[] args)
+        public static void MainByCompareinPairs(int[] array)
         {
-            int[] arr = { 1000, 11, 445, 1, 330, 3000 };
-            int arr_size = 6;
-            Pair minmax = getMinMaxByCompareinPairs(arr, arr_size);
-            Console.Write("Minimum element is {0}",
-                                       minmax.min);
-            Console.Write("\nMaximum element is {0}",
-                                         minmax.max);
+            Pair minmax = getMinMaxByCompareinPairs(array);
+            Debug.WriteLine("Minimum element is {0}", minmax.Min);
+            Debug.WriteLine("Maximum element is {0}", minmax.Max);
         }
     }
 }
