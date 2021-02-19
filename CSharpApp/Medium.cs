@@ -407,66 +407,92 @@ namespace CSharpApp
             return 0;
         }
 
-        //5. Longest Palindromic Substring
+        //5. Longest Palindromic Substring (Time Limit Exceeded)
         public string LongestPalindrome(string s)
         {
-            var charArray = s.ToCharArray();
+            var originCharArray = s.ToCharArray();
 
-            return "";
-        }
-        public bool CheckPalindromic(string s)
-        {
-            var charArray = s.ToCharArray();
+            var modifiedCharArray = new List<char>();
 
-            var length = charArray.Length;
+            var modifiedString = "";
 
-            var leftArray = new List<char>();
-
-            var rightArray = new List<char>();
-
-            //oven
-            if (charArray.Length % 2 == 0)
+            foreach (var charItem in originCharArray)
             {
-                for (int i = 0; i < length; i++)
-                {
-                    if (i <= length / 2 - 1)
-                    {
-                        leftArray.Add(charArray[i]);
-                    }
+                modifiedString += "*";
 
-                    if (i > length / 2 - 1)
-                    {
-                        rightArray.Add(charArray[i]);
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < length; i++)
-                {
-                    if (i < length / 2 - 1)
-                    {
-                        leftArray.Add(charArray[i]);
-                    }
+                modifiedString += charItem;
 
-                    if (i > (int)Math.Ceiling(length / 2.0) - 1)
-                    {
-                        rightArray.Add(charArray[i]);
-                    }
-                }
+                modifiedCharArray.Add('*');
+
+                modifiedCharArray.Add(charItem);
             }
 
-            rightArray.Reverse();
+            modifiedString += "*";
 
-            for (int i = 0; i < leftArray.Count; i++)
+            modifiedCharArray.Add('*');
+
+            var oddSeedList = new Dictionary<int, int>();
+
+            for (int i = 0; i < modifiedCharArray.Count; i++)
             {
-                if (leftArray[i] != rightArray[i])            
-                {
-                    return false;
-                }
+                oddSeedList.Add(i, 0);
             }
 
-            return true;
+            var bestIndex = new List<int>() { 0, 0 };
+
+            var wingLength = 0;
+
+            var deleteList = new List<int>();
+
+            var indexes = oddSeedList.Keys.ToList();
+
+            while (wingLength <= modifiedCharArray.Count / 2)
+            {
+                foreach (var index in indexes)
+                {
+                    if (index - wingLength < 0)
+                    {
+                        deleteList.Add(index);
+
+                        continue;
+                    }
+
+                    if (index + wingLength > modifiedCharArray.Count - 1)
+                    {
+                        deleteList.Add(index);
+
+                        continue;
+                    }
+
+                    if (modifiedCharArray[index - wingLength] != modifiedCharArray[index + wingLength])
+                    {
+                        deleteList.Add(index);
+
+                        continue;
+                    }
+
+                    oddSeedList[index] = wingLength;
+
+                    if (wingLength > bestIndex[1])
+                    {
+                        bestIndex[1] = wingLength;
+                        bestIndex[0] = index;
+                    }
+                }
+
+                foreach (var deleteIndex in deleteList)
+                {
+                    indexes.Remove(deleteIndex);
+                }
+
+                deleteList.Clear();
+
+                wingLength++;
+            }
+
+            var subString = modifiedString.Substring(bestIndex[0] - bestIndex[1], bestIndex[1] * 2 + 1);
+
+            return subString.Replace("*", "");
         }
     }
 }

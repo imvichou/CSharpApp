@@ -34,7 +34,6 @@ C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CS
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.runtimeconfig.dev.json
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.dll
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\bin\Debug\netcoreapp3.1\CSharpApp.pdb
-C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csprojAssemblyReference.cache
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.Form1.resources
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csproj.GenerateResource.cache
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.AssemblyInfoInputs.cache
