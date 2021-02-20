@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Hougana\\.nuget\\packages\\": {}
+    "C:\\Users\\Vic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
+      "projectUniqueName": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
       "projectName": "CSharpApp",
-      "projectPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
-      "packagesPath": "C:\\Users\\Hougana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpApp\\obj\\",
+      "projectPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\CSharpApp.csproj",
+      "packagesPath": "C:\\Users\\Vic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Hougana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

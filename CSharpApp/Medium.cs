@@ -407,7 +407,7 @@ namespace CSharpApp
             return 0;
         }
 
-        //5. Longest Palindromic Substring (Time Limit Exceeded)
+        //5. Longest Palindromic Substring
         public string LongestPalindrome(string s)
         {
             var originCharArray = s.ToCharArray();

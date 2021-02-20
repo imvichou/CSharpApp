@@ -111,6 +111,18 @@ namespace CSharpApp
         }
         #endregion
 
+        #region Hard
+        Hard Hard;
+        private void button_LeetCodeHard_Click(object sender, EventArgs e)
+        {
+            Hard = new Hard();
+
+            var result = Hard.IsMatch(new string("aaa"), new string("ab*a*c*a"));
+
+            return;
+        }
+        #endregion
+
         #region Nullable
         private void button_Nullable_Click(object sender, EventArgs e)
         {
@@ -131,5 +143,6 @@ namespace CSharpApp
             return;
         }
         #endregion
+        
     }
 }
