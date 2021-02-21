@@ -14,6 +14,8 @@ namespace CSharpApp
             public int Max;
         }
 
+        //Find max and min-- 最大或最小為n-1次，找出後再找the other則不同，逐一比較最差
+
         //(Simple Linear Search) 簡單線性搜尋/逐一比較
         //Initialize values of min and max as minimum and maximum of the first two elements respectively.Starting from 3rd, 
         //compare each element with max and min, and change max and min accordingly
@@ -219,6 +221,24 @@ namespace CSharpApp
             Debug.WriteLine("Minimum element is {0}", minmax.Min);
             Debug.WriteLine("Maximum element is {0}", minmax.Max);
         }
+
+
+        //sort--
+
+        //selection sort
+
+        //insertion sort
+
+        //bubble sort
+
+        //quick sort
+
+        //search--
+
+        //sequential search
+        //binary search
+
+        //dynamic programming
     }
 }
 

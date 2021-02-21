@@ -42,3 +42,4 @@ C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CS
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.dll
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.pdb
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.genruntimeconfig.cache
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpApp\obj\Debug\netcoreapp3.1\CSharpApp.csprojAssemblyReference.cache

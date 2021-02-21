@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -248,6 +249,121 @@ namespace CSharpApp
             return string3;
         }
 
+        //6. ZigZag Conversion
+        public string Convert(string s, int numRows)
+        {
+            var zigzagSize = GetZigzagSize(s, numRows);
+
+            if (numRows == 1)
+            {
+                return s;
+            }
+
+            return GetZigzag(s, zigzagSize);
+        }
+        public ZigzagSize GetZigzagSize(string s, int numRows)
+        {
+            var stringLength = s.ToCharArray().Length;
+
+            //a set of zigzag is one vertical line with the slanted line before another vertical line
+            var memberOfset = numRows * 2 - 2;
+
+            var remainderOfZigzag = 0;
+
+            var quotientOfZigzag = Math.DivRem(stringLength, memberOfset, out remainderOfZigzag);
+
+            var remainderOfRest = 0;
+
+            var quotientOfRest = Math.DivRem(remainderOfZigzag, numRows, out remainderOfRest);
+
+            if (quotientOfRest == 0)
+            {
+                return new ZigzagSize() { LengthOfX = quotientOfZigzag * (numRows - 1) + 1, LengthOfY = numRows };
+            }
+
+            return new ZigzagSize() { LengthOfX = quotientOfZigzag * (numRows - 1) + 1 + remainderOfRest, LengthOfY = numRows };
+        }
+        public string GetZigzag(string s, ZigzagSize zigzagSize)
+        {
+            var charArray = s.ToCharArray();
+
+            var zigzagMap = new Dictionary<int, Dictionary<int, string>>();
+
+            var memberOfset = zigzagSize.LengthOfY * 2 - 2;
+
+            var insertCount = 0;
+
+            for (int i = 0; i < zigzagSize.LengthOfX; i++)
+            {
+                for (int j = 0; j < zigzagSize.LengthOfY; j++)
+                {
+                    if (!zigzagMap.ContainsKey(i))
+                    {
+                        zigzagMap.Add(i, new Dictionary<int, string>());
+                    }
+
+                    zigzagMap[i].Add(j, null);
+
+                    var currentRow = 0;
+
+                    var currentColumn = Math.DivRem(insertCount, zigzagSize.LengthOfY, out currentRow);
+
+                    var restOfSet = 0;
+
+                    var currentSet = Math.DivRem(currentColumn, (zigzagSize.LengthOfY - 1), out restOfSet);
+
+                    var indexOfS = 0;
+
+                    if (restOfSet == 0)
+                    {
+                        indexOfS = (currentSet * memberOfset - 1) + (currentRow + 1);
+                    }
+                    else
+                    {
+                        indexOfS = (currentSet * memberOfset - 1) + zigzagSize.LengthOfY + restOfSet;
+                    }
+
+                    if (indexOfS > charArray.Length - 1)
+                    {
+                        continue;
+                    }
+
+                    if (restOfSet == 0)
+                    {
+                        zigzagMap[i][j] = charArray[indexOfS].ToString();
+                    }
+                    else if (currentRow == zigzagSize.LengthOfY - restOfSet - 1)
+                    {
+                        zigzagMap[i][j] = charArray[indexOfS].ToString();
+                    }
+
+                    insertCount++;
+                }
+            }
+
+            var result = "";
+
+            for (int j = 0; j < zigzagSize.LengthOfY; j++)
+            {
+                for (int i = 0; i < zigzagSize.LengthOfX; i++)
+                {
+                    if (zigzagMap[i][j] == null)
+                    {
+                        continue;
+                    }
+
+                    result += zigzagMap[i][j].ToString();
+                }
+            }
+
+            return result;
+        }
+        public class ZigzagSize
+        {
+            public int LengthOfX { get; set; }
+            public int LengthOfY { get; set; }
+        }
+
         //11. Container With Most Water
         public int MaxArea(int[] height)
         {
@@ -493,6 +609,64 @@ namespace CSharpApp
             var subString = modifiedString.Substring(bestIndex[0] - bestIndex[1], bestIndex[1] * 2 + 1);
 
             return subString.Replace("*", "");
+        }
+
+        //15. 3Sum
+        public IList<IList<int>> ThreeSum(int[] nums)
+        {
+            var tempResult = new Dictionary<string, List<int>>();
+
+            var numsList = nums.ToList();
+
+            for (int k = 0; k < numsList.Count; k++)
+            {         
+                for (int i = 0; i < numsList.Count; i++)
+                {
+                    for (int j = 0; j < numsList.Count; j++)
+                    {
+                        if (k == i || k == j || i == j)
+                        {
+                            continue;
+                        }
+
+                        if (numsList[k] + numsList[i] + numsList[j] == 0)
+                        {
+                            var newList = new List<int>() { numsList[k], numsList[i], numsList[j] };
+
+                            var sortKey = GetSortString(newList);
+
+                            if (!tempResult.ContainsKey(sortKey))
+                            {
+                                var sortedList = newList.OrderBy(m => m);
+
+                                tempResult.Add(sortKey, sortedList.ToList());
+                            }
+                        }
+                    }
+                }
+            }
+
+            var result = new List<List<int>>();
+
+            foreach (var key in tempResult.Keys)
+            {
+                result.Add(tempResult[key]);
+            }
+
+            return (IList<IList<int>>)result;
+        }
+        public string GetSortString(List<int> input)
+        {
+            var result = "";
+
+            var orderedInput = input.OrderBy(m => m);
+
+            foreach (var item in orderedInput)
+            {
+                result += item;
+            }
+
+            return result;
         }
     }
 }
