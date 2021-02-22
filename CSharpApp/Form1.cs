@@ -99,9 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            int[] nums = new int[] { -1, 0, 1, 2, -1, -4 };
-
-            var result = Medium.ThreeSum(nums);
+            var result = Medium.LetterCombinations("234");
 
             return;
         }

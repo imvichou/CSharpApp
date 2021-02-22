@@ -49,7 +49,7 @@ namespace CSharpApp
 
                 listNodeList[i].val = int.Parse(stringList[i]);
 
-                if (i != 0) 
+                if (i != 0)
                 {
                     listNodeList[i - 1].next = listNodeList[i];
                 }
@@ -173,7 +173,7 @@ namespace CSharpApp
                     }
                     else
                     {
-                        splitList1[i] = (int2 + int1).ToString().ToCharArray()[0];       
+                        splitList1[i] = (int2 + int1).ToString().ToCharArray()[0];
                     }
                 }
 
@@ -413,7 +413,7 @@ namespace CSharpApp
 
                     length++;
 
-                    if(maxLength < length)
+                    if (maxLength < length)
                     {
                         maxLength = length;
                     }
@@ -446,7 +446,7 @@ namespace CSharpApp
             //要拆成二進位來處理
             var quotient = 0;
             var dividendIsNegative = false;
-            var divisorIsNegative = false; 
+            var divisorIsNegative = false;
 
             if (dividend < 0)
             {
@@ -478,7 +478,7 @@ namespace CSharpApp
                 while (dividend < 0 && dividend + divisor <= 0)
                 {
                     dividend = dividend + divisor;
-                    
+
                     quotient--;
                 }
             }
@@ -611,62 +611,92 @@ namespace CSharpApp
             return subString.Replace("*", "");
         }
 
-        //15. 3Sum
+        //15. 3Sum (Time Limit Exceeded)
         public IList<IList<int>> ThreeSum(int[] nums)
         {
-            var tempResult = new Dictionary<string, List<int>>();
+            List<IList<int>> res = new List<IList<int>>();
+            Array.Sort(nums);
 
-            var numsList = nums.ToList();
+            for (int i = 0; i < nums.Length - 2; i++)
+            {
+                if (i > 0 && nums[i] == nums[i - 1])
+                    continue;
 
-            for (int k = 0; k < numsList.Count; k++)
-            {         
-                for (int i = 0; i < numsList.Count; i++)
+                int target = -nums[i], low = i + 1, high = nums.Length - 1;
+
+                while (low < high)
                 {
-                    for (int j = 0; j < numsList.Count; j++)
+                    if (nums[low] + nums[high] == target)
                     {
-                        if (k == i || k == j || i == j)
-                        {
-                            continue;
-                        }
+                        res.Add(new List<int>() { nums[i], nums[low], nums[high] });
+                        low++;
+                        high--;
 
-                        if (numsList[k] + numsList[i] + numsList[j] == 0)
-                        {
-                            var newList = new List<int>() { numsList[k], numsList[i], numsList[j] };
-
-                            var sortKey = GetSortString(newList);
-
-                            if (!tempResult.ContainsKey(sortKey))
-                            {
-                                var sortedList = newList.OrderBy(m => m);
-
-                                tempResult.Add(sortKey, sortedList.ToList());
-                            }
-                        }
+                        while (low < high && nums[low] == nums[low - 1])
+                            low++;
+                        while (low < high && nums[high] == nums[high + 1])
+                            high--;
                     }
+                    else if (nums[low] + nums[high] > target)
+                        high--;
+                    else
+                        low++;
                 }
             }
 
-            var result = new List<List<int>>();
-
-            foreach (var key in tempResult.Keys)
-            {
-                result.Add(tempResult[key]);
-            }
-
-            return (IList<IList<int>>)result;
+            return res;
         }
-        public string GetSortString(List<int> input)
+
+        //17. Letter Combinations of a Phone Number
+        public IList<string> LetterCombinations(string digits)
         {
-            var result = "";
+            if (digits == null || digits.Length == 0)
+                return new List<string>();
 
-            var orderedInput = input.OrderBy(m => m);
+            Hashtable hash = new Hashtable();
+            char[][] graph = new char[digits.Length][];
+            string temp = string.Empty;
+            List<string> result = new List<string>();
 
-            foreach (var item in orderedInput)
+            hash.Add('2', "abc");
+            hash.Add('3', "def");
+            hash.Add('4', "ghi");
+            hash.Add('5', "jkl");
+            hash.Add('6', "mno");
+            hash.Add('7', "pqrs");
+            hash.Add('8', "tuv");
+            hash.Add('9', "wxyz");
+
+            for (int i = 0; i < digits.Length; i++)
             {
-                result += item;
+                temp = (string)hash[digits[i]];
+
+                graph[i] = new char[temp.Length];
+
+                for (int j = 0; j < temp.Length; j++)
+                    graph[i][j] = temp[j];
             }
+
+            DFS(graph, 0, string.Empty, result);
 
             return result;
+        }
+        public void DFS(char[][] graph, int currentLayer, string previousCombination, List<string> result)
+        {
+            string currentCombination = string.Empty;
+
+            if (graph.Length - 1 < currentLayer)
+            {
+                result.Add(previousCombination);
+                return;
+            }
+
+            foreach (var item in graph[currentLayer])
+            {
+                currentCombination = previousCombination;
+
+                DFS(graph, currentLayer + 1, currentCombination += item, result);
+            }
         }
     }
 }
