@@ -99,7 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.LetterCombinations("234");
+            var result = Medium.IsValid("[({(())}[()])]");
 
             return;
         }

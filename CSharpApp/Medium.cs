@@ -20,6 +20,26 @@ namespace CSharpApp
                 this.next = next;
             }
         }
+        public ListNode GetListNode(int[] input)
+        {
+            var listNodeList = new List<ListNode>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                var listNode = new ListNode();
+
+                listNodeList.Add(listNode);
+
+                listNodeList[i].val = input[i];
+
+                if (i != 0)
+                {
+                    listNodeList[i - 1].next = listNodeList[i];
+                }
+            }
+
+            return listNodeList[0];
+        }
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             var reverseInt1 = GetReverseInt(GetIntByLinkedList(l1));
@@ -697,6 +717,243 @@ namespace CSharpApp
 
                 DFS(graph, currentLayer + 1, currentCombination += item, result);
             }
+        }
+
+        //19. Remove Nth Node From End of List
+        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            var listNodeList = new List<ListNode>();
+
+            listNodeList.Add(head);
+
+            if (head.next == null)
+            {
+                return null;
+            }
+
+            while (head.next != null)
+            {
+                head = head.next;
+
+                listNodeList.Add(head);
+            }
+
+            listNodeList.Reverse();
+
+            for (int i = 0; i < listNodeList.Count; i++)
+            {
+                if (i == n - 1)
+                {
+                    listNodeList[i] = null;
+                }
+
+                if (i >= 1 && listNodeList[i - 1] == null)
+                {
+                    if (i >= 2)
+                    {
+                        listNodeList[i].next = listNodeList[i - 2];
+
+                        break;
+                    }
+                    else
+                    {
+                        listNodeList[i].next = null;
+
+                        break;
+                    }
+                }
+            }
+
+            for (int i = listNodeList.Count - 1; i >= 0; i--)
+            {
+                if (listNodeList[i] != null)
+                {
+                    return listNodeList[i];
+                }
+            }
+
+            return listNodeList[listNodeList.Count - 1];
+        }
+
+        //20. Valid Parentheses
+        public bool IsValid(string s)
+        {
+            var charArray = s.ToCharArray().ToList();
+
+            var indexDictionary = new Dictionary<string, List<int>>();
+
+            var reverseIndexDictionary = new Dictionary<int, string>();
+
+            for (int i = 0; i < charArray.Count; i++)
+            {
+                if (!indexDictionary.ContainsKey(charArray[i].ToString()))
+                {
+                    indexDictionary.Add(charArray[i].ToString(), new List<int>());
+                }
+
+                indexDictionary[charArray[i].ToString()].Add(i);
+
+                reverseIndexDictionary.Add(i, charArray[i].ToString());
+            }
+
+            var tempData = new Dictionary<string, Dictionary<int, int>>();
+
+            if (indexDictionary.ContainsKey("("))
+            {
+                if (!indexDictionary.ContainsKey(")"))
+                {
+                    return false;
+                }
+
+                if(indexDictionary["("].Count != indexDictionary[")"].Count)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < indexDictionary["("].Count; i++)
+                {
+                    if ((indexDictionary[")"][i] - indexDictionary["("][indexDictionary["("].Count - 1 - i]) % 2 != 1)
+                    {
+                        return false;
+                    }
+
+                    if (!tempData.ContainsKey("("))
+                    {
+                        tempData.Add("(", new Dictionary<int, int>());
+                    }
+
+                    tempData["("].Add(indexDictionary["("][indexDictionary["("].Count - 1 - i], indexDictionary[")"][i]);
+                }
+            }
+            else
+            {
+                if (indexDictionary.ContainsKey(")"))
+                {
+                    return false;
+                }
+            }
+
+            if (indexDictionary.ContainsKey("{"))
+            {
+                if (!indexDictionary.ContainsKey("}"))
+                {
+                    return false;
+                }
+
+                if (indexDictionary["{"].Count != indexDictionary["}"].Count)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < indexDictionary["{"].Count; i++)
+                {
+                    if ((indexDictionary["}"][i] - indexDictionary["{"][indexDictionary["}"].Count - 1 - i]) % 2 != 1)
+                    {
+                        return false;
+                    }
+
+                    if (!tempData.ContainsKey("{"))
+                    {
+                        tempData.Add("{", new Dictionary<int, int>());
+                    }
+
+                    tempData["{"].Add(indexDictionary["{"][indexDictionary["{"].Count - 1 - i], indexDictionary["}"][i]);
+                }
+            }
+            else
+            {
+                if (indexDictionary.ContainsKey("}"))
+                {
+                    return false;
+                }
+            }
+
+            if (indexDictionary.ContainsKey("["))
+            {
+                if (!indexDictionary.ContainsKey("]"))
+                {
+                    return false;
+                }
+
+                if (indexDictionary["["].Count != indexDictionary["]"].Count)
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < indexDictionary["["].Count; i++)
+                {
+                    if ((indexDictionary["]"][i] - indexDictionary["["][indexDictionary["["].Count - 1 - i]) % 2 != 1)
+                    {
+                        return false;
+                    }
+
+                    if (!tempData.ContainsKey("["))
+                    {
+                        tempData.Add("[", new Dictionary<int, int>());
+                    }
+
+                    tempData["["].Add(indexDictionary["["][indexDictionary["["].Count - 1 - i], indexDictionary["]"][i]);
+                }
+            }
+            else
+            {
+                if (indexDictionary.ContainsKey("]"))
+                {
+                    return false;
+                }
+            }
+
+            foreach (var key in tempData.Keys)
+            {
+                foreach (var startIndex in tempData[key].Keys)
+                {
+                    if (key == "(")
+                    {
+                        if (charArray[startIndex + 1] == '}' || charArray[startIndex + 1] == ']')
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (key == "{")
+                    {
+                        if (charArray[startIndex + 1] == ']' || charArray[startIndex + 1] == ')')
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (key == "[")
+                    {
+                        if (charArray[startIndex + 1] == '}' || charArray[startIndex + 1] == ')')
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public bool CheckParentheses(string s1, string s2)
+        {
+            if (s1 == "{" && s2 == "}")
+            {
+                return true;
+            }
+
+            if(s1 == "[" && s2 == "]")
+            {
+                return true;
+            }
+
+            if(s1 == "(" && s2 == ")")
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
