@@ -778,182 +778,103 @@ namespace CSharpApp
         //20. Valid Parentheses
         public bool IsValid(string s)
         {
-            var charArray = s.ToCharArray().ToList();
+            var cleanPatten = new List<string>() { "{}", "[]", "()" };
 
-            var indexDictionary = new Dictionary<string, List<int>>();
+            var previousS = "";
 
-            var reverseIndexDictionary = new Dictionary<int, string>();
-
-            for (int i = 0; i < charArray.Count; i++)
+            while (s != "")
             {
-                if (!indexDictionary.ContainsKey(charArray[i].ToString()))
+                previousS = s;
+
+                foreach (var item in cleanPatten)
                 {
-                    indexDictionary.Add(charArray[i].ToString(), new List<int>());
+                    s = s.Replace(item, "");
                 }
 
-                indexDictionary[charArray[i].ToString()].Add(i);
-
-                reverseIndexDictionary.Add(i, charArray[i].ToString());
-            }
-
-            var tempData = new Dictionary<string, Dictionary<int, int>>();
-
-            if (indexDictionary.ContainsKey("("))
-            {
-                if (!indexDictionary.ContainsKey(")"))
+                if (previousS == s)
                 {
                     return false;
-                }
-
-                if(indexDictionary["("].Count != indexDictionary[")"].Count)
-                {
-                    return false;
-                }
-
-                for (int i = 0; i < indexDictionary["("].Count; i++)
-                {
-                    if ((indexDictionary[")"][i] - indexDictionary["("][indexDictionary["("].Count - 1 - i]) % 2 != 1)
-                    {
-                        return false;
-                    }
-
-                    if (!tempData.ContainsKey("("))
-                    {
-                        tempData.Add("(", new Dictionary<int, int>());
-                    }
-
-                    tempData["("].Add(indexDictionary["("][indexDictionary["("].Count - 1 - i], indexDictionary[")"][i]);
-                }
-            }
-            else
-            {
-                if (indexDictionary.ContainsKey(")"))
-                {
-                    return false;
-                }
-            }
-
-            if (indexDictionary.ContainsKey("{"))
-            {
-                if (!indexDictionary.ContainsKey("}"))
-                {
-                    return false;
-                }
-
-                if (indexDictionary["{"].Count != indexDictionary["}"].Count)
-                {
-                    return false;
-                }
-
-                for (int i = 0; i < indexDictionary["{"].Count; i++)
-                {
-                    if ((indexDictionary["}"][i] - indexDictionary["{"][indexDictionary["}"].Count - 1 - i]) % 2 != 1)
-                    {
-                        return false;
-                    }
-
-                    if (!tempData.ContainsKey("{"))
-                    {
-                        tempData.Add("{", new Dictionary<int, int>());
-                    }
-
-                    tempData["{"].Add(indexDictionary["{"][indexDictionary["{"].Count - 1 - i], indexDictionary["}"][i]);
-                }
-            }
-            else
-            {
-                if (indexDictionary.ContainsKey("}"))
-                {
-                    return false;
-                }
-            }
-
-            if (indexDictionary.ContainsKey("["))
-            {
-                if (!indexDictionary.ContainsKey("]"))
-                {
-                    return false;
-                }
-
-                if (indexDictionary["["].Count != indexDictionary["]"].Count)
-                {
-                    return false;
-                }
-
-                for (int i = 0; i < indexDictionary["["].Count; i++)
-                {
-                    if ((indexDictionary["]"][i] - indexDictionary["["][indexDictionary["["].Count - 1 - i]) % 2 != 1)
-                    {
-                        return false;
-                    }
-
-                    if (!tempData.ContainsKey("["))
-                    {
-                        tempData.Add("[", new Dictionary<int, int>());
-                    }
-
-                    tempData["["].Add(indexDictionary["["][indexDictionary["["].Count - 1 - i], indexDictionary["]"][i]);
-                }
-            }
-            else
-            {
-                if (indexDictionary.ContainsKey("]"))
-                {
-                    return false;
-                }
-            }
-
-            foreach (var key in tempData.Keys)
-            {
-                foreach (var startIndex in tempData[key].Keys)
-                {
-                    if (key == "(")
-                    {
-                        if (charArray[startIndex + 1] == '}' || charArray[startIndex + 1] == ']')
-                        {
-                            return false;
-                        }
-                    }
-
-                    if (key == "{")
-                    {
-                        if (charArray[startIndex + 1] == ']' || charArray[startIndex + 1] == ')')
-                        {
-                            return false;
-                        }
-                    }
-
-                    if (key == "[")
-                    {
-                        if (charArray[startIndex + 1] == '}' || charArray[startIndex + 1] == ')')
-                        {
-                            return false;
-                        }
-                    }
                 }
             }
 
             return true;
         }
 
-        public bool CheckParentheses(string s1, string s2)
+        //21. Merge Two Sorted Lists
+        public ListNode MergeTwoLists(ListNode l1, ListNode l2)
         {
-            if (s1 == "{" && s2 == "}")
+            if (l1 == null)
             {
-                return true;
+                return l2;
+            }
+            else if (l2 == null)
+            {
+                return l1;
+            }
+            
+            var linkedList1 = new List<ListNode>();
+            var linkedList2 = new List<ListNode>();
+
+            while (l1.next != null)
+            {
+                linkedList1.Add(l1);
+
+                l1 = l1.next;
             }
 
-            if(s1 == "[" && s2 == "]")
+            linkedList1.Add(l1);
+
+            while (l2.next != null)
             {
-                return true;
+                linkedList2.Add(l2);
+
+                l2 = l2.next;
             }
 
-            if(s1 == "(" && s2 == ")")
+            linkedList2.Add(l2);
+
+            var linkedList3 = new List<ListNode>();
+
+            var index1 = 0;
+            var index2 = 0;
+
+            while ((index1 < linkedList1.Count || index2 < linkedList2.Count))
             {
-                return true;
+                if (index1 == linkedList1.Count)
+                {
+                    linkedList3.Add(linkedList2[index2]);
+                    index2++;
+                }
+                else if(index2 == linkedList2.Count)
+                {
+                    linkedList3.Add(linkedList1[index1]);
+                    index1++;
+                }
+                else if(linkedList1[index1].val <= linkedList2[index2].val)
+                {
+                    linkedList3.Add(linkedList1[index1]);
+                    index1++;
+                }
+                else
+                {
+                    linkedList3.Add(linkedList2[index2]);
+                    index2++;
+                }
             }
 
-            return false;
+            for (int i = 0; i < linkedList3.Count; i++)
+            {
+                if (i < linkedList3.Count - 1)
+                {
+                    linkedList3[i].next = linkedList3[i + 1];
+                }
+                else
+                {
+                    linkedList3[i].next = null;
+                }
+            }
+
+            return linkedList3[0];
         }
     }
 }
