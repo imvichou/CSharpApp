@@ -1,0 +1,10 @@
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.deps.json
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.dll
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.pdb
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csprojAssemblyReference.cache
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.AssemblyInfoInputs.cache
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.AssemblyInfo.cs
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csproj.CoreCompileInputs.cache
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.dll
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.pdb

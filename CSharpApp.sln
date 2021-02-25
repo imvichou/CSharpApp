@@ -7,20 +7,50 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpApp", "CSharpApp\CSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearning", "MachineLearning\MachineLearning.csproj", "{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpAppML.Model", "CSharpAppML.Model\CSharpAppML.Model.csproj", "{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpAppML.ConsoleApp", "CSharpAppML.ConsoleApp\CSharpAppML.ConsoleApp.csproj", "{EFBAF24F-DA1A-4753-B140-A878FE04E921}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Debug|x64.Build.0 = Debug|Any CPU
 		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Release|x64.ActiveCfg = Release|Any CPU
+		{F19DFD05-83A8-494D-AA0D-A97F959BB9BC}.Release|x64.Build.0 = Release|Any CPU
 		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Debug|x64.ActiveCfg = Debug|x64
+		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Debug|x64.Build.0 = Debug|x64
 		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Release|x64.ActiveCfg = Release|x64
+		{07E08EF3-2B1B-428D-ADDE-7FC3167572FF}.Release|x64.Build.0 = Release|x64
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC2DACC7-0FE6-4454-A66B-582DFCAAFFC2}.Release|x64.Build.0 = Release|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Debug|x64.Build.0 = Debug|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Release|x64.ActiveCfg = Release|Any CPU
+		{EFBAF24F-DA1A-4753-B140-A878FE04E921}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
