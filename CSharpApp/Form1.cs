@@ -99,7 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.MergeTwoLists(Medium.GetListNode(new int[] { 1, 2, 4 }), Medium.GetListNode(new int[] { 1, 3, 4 }));
+            var result = Medium.GenerateParenthesis(3);
 
             return;
         }

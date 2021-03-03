@@ -876,5 +876,38 @@ namespace CSharpApp
 
             return linkedList3[0];
         }
+
+        //22. Generate Parentheses
+        public IList<string> GenerateParenthesis(int n)
+        {
+            var meta = new Dictionary<int, List<string>>();
+
+            meta.Add(0, new List<string>());
+            meta[0].Add("(");
+            meta[0].Add(")");
+
+            for (int i = 1; i < n * 2; i++)
+            {
+                meta.Add(i, new List<string>());
+
+                foreach (var item in meta[i - 1])
+                {
+                    meta[i].Add(item + "(");
+                    meta[i].Add(item + ")");
+                }
+            }
+
+            var result = new List<string>();
+
+            foreach (var item in meta[n * 2 - 1])
+            {
+                if(IsValid(item))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
     }
 }
