@@ -811,7 +811,7 @@ namespace CSharpApp
             {
                 return l1;
             }
-            
+
             var linkedList1 = new List<ListNode>();
             var linkedList2 = new List<ListNode>();
 
@@ -845,12 +845,12 @@ namespace CSharpApp
                     linkedList3.Add(linkedList2[index2]);
                     index2++;
                 }
-                else if(index2 == linkedList2.Count)
+                else if (index2 == linkedList2.Count)
                 {
                     linkedList3.Add(linkedList1[index1]);
                     index1++;
                 }
-                else if(linkedList1[index1].val <= linkedList2[index2].val)
+                else if (linkedList1[index1].val <= linkedList2[index2].val)
                 {
                     linkedList3.Add(linkedList1[index1]);
                     index1++;
@@ -901,13 +901,126 @@ namespace CSharpApp
 
             foreach (var item in meta[n * 2 - 1])
             {
-                if(IsValid(item))
+                if (IsValid(item))
                 {
                     result.Add(item);
                 }
             }
 
             return result;
+        }
+
+        //33. Search in Rotated Sorted Array
+        public int Search(int[] nums, int target)
+        {
+            return nums.ToList().IndexOf(target);
+        }
+
+        //34. Find First and Last Position of Element in Sorted Array
+        public int[] SearchRange(int[] nums, int target)
+        {
+            if (nums.Length == 0)
+            {
+                return new int[] { -1, -1 };
+            }
+            
+            var list = nums.ToList();
+
+            var i = 0;
+            var j = nums.Length - 1;
+
+            while (i <= j && !(nums[i] == target && nums[j] == target))
+            {
+                if (nums[i] != target)
+                {
+                    i++;
+                }
+
+                if (nums[j] != target)
+                {
+                    j--;
+                }
+            }
+
+            if ((i > nums.Length - 1 || j < 0) || (nums[i] != target && nums[j] != target))
+            {
+                return new int[] { -1, -1 };
+            }
+            else
+            {
+                return new int[] { i, j };
+            }
+        }
+
+        //39. Combination Sum
+        public IList<IList<int>> CombinationSum(int[] candidates, int target)
+        {
+            List<IList<int>> result = new List<IList<int>>();
+
+            List<int> combination = new List<int>();
+
+            Array.Sort(candidates);
+
+            List<List<int>> record = new List<List<int>>();
+
+            CombinationSum(result, candidates, combination, target, 0, record);
+
+            return result;
+        }
+        private void CombinationSum(IList<IList<int>> result, int[] candidates, IList<int> combination, int target, int start, List<List<int>> record)
+        {
+            if (target == 0)
+            {
+                result.Add(new List<int>(combination));
+
+                return;
+            }
+
+            for (int i = start; i != candidates.Length && target >= candidates[i]; ++i)
+            {
+                combination.Add(candidates[i]);
+
+                CombinationSum(result, candidates, combination, target - candidates[i], i, record);
+
+                record.Add(new List<int>(combination));
+
+                combination.Remove(combination.Last());
+            }
+        }
+
+        //46. Permutations
+        public IList<IList<int>> Permute(int[] nums)
+        {
+            var result = new List<IList<int>>();
+
+            var meta = new List<int>();
+
+            Selection(result, meta, nums);
+
+            return result;
+        }
+        private void Selection(IList<IList<int>> result, IList<int> meta, int[] nums)
+        {
+            if (meta.Count == nums.Length)
+            {
+                result.Add(new List<int>(meta));
+
+                return;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (meta.Contains(nums[i]))
+                {
+                    continue;
+                }
+                
+                meta.Add(nums[i]);
+
+                Selection(result, meta, nums);
+
+                meta.Remove(meta.Last());
+            }
         }
     }
 }

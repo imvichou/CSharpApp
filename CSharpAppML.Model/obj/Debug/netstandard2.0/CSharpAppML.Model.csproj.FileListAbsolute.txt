@@ -8,3 +8,13 @@ C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstand
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csproj.CoreCompileInputs.cache
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.dll
 C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.pdb
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.deps.json
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.dll
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\bin\Debug\netstandard2.0\CSharpAppML.Model.pdb
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csprojAssemblyReference.cache
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.AssemblyInfoInputs.cache
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.AssemblyInfo.cs
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csproj.CoreCompileInputs.cache
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.dll
+C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.pdb

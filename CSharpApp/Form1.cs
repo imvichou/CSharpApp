@@ -99,7 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.GenerateParenthesis(3);
+            var result = Medium.Permute(new int[] { 1, 2, 3 });
 
             return;
         }
