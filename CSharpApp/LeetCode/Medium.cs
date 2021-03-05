@@ -40,6 +40,29 @@ namespace CSharpApp
 
             return listNodeList[0];
         }
+        public List<ListNode> GetListNode(int[][] input)
+        {
+            var listNodeList = new List<ListNode>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                for (int j = 0; j < input[i].Length; j++)
+                {
+                    var listNode = new ListNode();
+
+                    listNodeList.Add(listNode);
+
+                    listNodeList[listNodeList.Count - 1].val = input[i][j];
+
+                    if (listNodeList.Count - 1 != 0)
+                    {
+                        listNodeList[listNodeList.Count - 2].next = listNodeList[listNodeList.Count - 1];
+                    }
+                }
+            }
+
+            return listNodeList;
+        }
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             var reverseInt1 = GetReverseInt(GetIntByLinkedList(l1));
@@ -1021,6 +1044,87 @@ namespace CSharpApp
 
                 meta.Remove(meta.Last());
             }
+        }
+
+        //48. Rotate Image
+        public void Rotate(int[][] matrix)
+        {
+            var listNodes = GetListNode(matrix);
+
+            var columns = matrix[0].Length;
+
+            var doneCount = 0;
+
+            var getRow = matrix.Length - 1;
+            var getColumn = 0;
+
+            Object head = null;
+
+            while (doneCount < listNodes.Count - 1)
+            {
+                var setRow = getRow - 1;
+
+                var setColumn = getColumn;
+
+                if (setRow == -1)
+                {
+                    setRow = matrix.Length - 1;
+
+                    setColumn = getColumn + 1;
+                }
+
+                var getIndex = getRow * columns + getColumn;
+
+                var setIndex = setRow * columns + setColumn;
+
+                if (head == null)
+                {
+                    head = listNodes[getIndex];
+                }
+
+                listNodes[getIndex].next = listNodes[setIndex];
+
+                getRow--;
+
+                if (getRow == -1)
+                {
+                    getRow = matrix.Length - 1;
+                    getColumn++;
+                }
+
+                doneCount++;
+            }
+
+            var i = 0;
+            var j = 0;
+
+            doneCount = 0;
+
+            while (doneCount < listNodes.Count)
+            {
+                var firstListNode = head as ListNode;
+
+                if (firstListNode == null)
+                {
+                    return;
+                }
+
+                matrix[i][j] = firstListNode.val;
+
+                j++;
+
+                if (j == columns)
+                {
+                    i++;
+                    j = 0;
+                }
+
+                doneCount++;
+
+                head = firstListNode.next;
+            }
+
+            return;
         }
     }
 }
