@@ -1022,5 +1022,76 @@ namespace CSharpApp
                 meta.Remove(meta.Last());
             }
         }
+
+        //49. Group Anagrams
+        public IList<IList<string>> GroupAnagrams(string[] strs)
+        {
+            var dictionaryByKey = new Dictionary<string, List<string>>();
+            
+            foreach (var str in strs)
+            {
+                var charArray = str.ToCharArray().ToList();
+
+                charArray.Sort();
+
+                var key = "";
+
+                foreach (var item in charArray)
+                {
+                    key += item;
+                }
+
+                if(!dictionaryByKey.ContainsKey(key))
+                {
+                    dictionaryByKey.Add(key, new List<string>());
+                }
+
+                dictionaryByKey[key].Add(str);
+            }
+
+            var result = new List<IList<string>>();
+
+            foreach (var key in dictionaryByKey.Keys)
+            {
+                result.Add(dictionaryByKey[key]);
+            }
+
+            return result;
+        }
+
+        //53. Maximum Subarray
+        public int MaxSubArray(int[] nums)
+        {
+            int sum = 0;
+            int maxSum = nums[0];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                sum += nums[i];
+
+                //如果這個元素本先前的總和還大，那直接把先前捨棄，改從此元素開始
+                if (nums[i] > sum)
+                {
+                    sum = nums[i];
+                }
+
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
+                }
+            }
+
+            return maxSum;
+        }
+
+        //55. Jump Game
+        public bool CanJump(int[] nums)
+        {
+
+        }
+        private void Go()
+        {
+
+        }
     }
 }

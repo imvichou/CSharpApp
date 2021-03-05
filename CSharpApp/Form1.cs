@@ -99,7 +99,7 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.Permute(new int[] { 1, 2, 3 });
+            var result = Medium.MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
 
             return;
         }
