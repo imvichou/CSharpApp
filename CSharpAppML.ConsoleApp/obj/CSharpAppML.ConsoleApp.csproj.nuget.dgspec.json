@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj": {}
+    "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj": {
+    "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj",
         "projectName": "CSharpAppML.ConsoleApp",
-        "projectPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\Vic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\obj\\",
+        "projectPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\CSharpAppML.ConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\Hougana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hougana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj": {
-                "projectPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj"
+              "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj": {
+                "projectPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj"
               }
             }
           }
@@ -68,21 +68,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj": {
+    "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj",
         "projectName": "CSharpAppML.Model",
-        "projectPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj",
-        "packagesPath": "C:\\Users\\Vic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vic\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\obj\\",
+        "projectPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\CSharpAppML.Model.csproj",
+        "packagesPath": "C:\\Users\\Hougana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hougana\\Documents\\GitHub\\CSharpApp\\CSharpAppML.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hougana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -133,7 +133,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

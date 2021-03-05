@@ -1087,11 +1087,47 @@ namespace CSharpApp
         //55. Jump Game
         public bool CanJump(int[] nums)
         {
+            //找尋自身可以移動的範圍內，有沒有人移動得比我更遠
+            
+            //greedy
+            int farthest = nums[0];
 
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (i > farthest)
+                    return false;
+
+                farthest = Math.Max(farthest, i + nums[i]);
+
+                if (farthest > nums.Length)
+                    return true;
+            }
+
+            return true;
         }
-        private void Go()
+        public bool CanJumpByDp(int[] nums)
         {
+            //檢查每一格是否可以到達
+            
+            // dp[i] means whether index i be reached or not
+            bool[] dp = new bool[nums.Length];
+            dp[0] = true;
 
+            for (int i = 1; i < nums.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    // check whether we jump from index j to index i?
+                    if (dp[j] && j + nums[j] >= i)
+                    {
+                        dp[i] = true;
+
+                        break;
+                    }
+                }
+            }
+
+            return dp[nums.Length - 1];
         }
     }
 }
