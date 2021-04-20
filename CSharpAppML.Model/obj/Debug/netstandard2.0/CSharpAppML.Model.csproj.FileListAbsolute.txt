@@ -17,3 +17,4 @@ C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2
 C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csproj.CoreCompileInputs.cache
 C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.dll
 C:\Users\Vic\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.pdb
+C:\Users\Hougana\Documents\GitHub\CSharpApp\CSharpAppML.Model\obj\Debug\netstandard2.0\CSharpAppML.Model.csprojAssemblyReference.cache

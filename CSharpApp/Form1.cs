@@ -99,7 +99,17 @@ namespace CSharpApp
         {
             Medium = new Medium();
 
-            var result = Medium.CanJumpByDp(new int[] { 3, 2, 1, 0, 4 });
+            //Medium.NumTrees(5);
+            //var result = Medium.MaxDepth2(Medium.GetTreeNode5());
+            //Medium.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
+
+            //var preorder = new int[] { 3, 9, 20, 15, 7 };
+            //var inorder = new int[] { 9, 3, 15, 20, 7 };
+            //var result = Medium.BuildTree(preorder, inorder);
+
+            //Medium.Flatten(Medium.GetTreeNode5());
+
+            Medium.CopyRandomList(Medium.GetNodes());
 
             return;
         }

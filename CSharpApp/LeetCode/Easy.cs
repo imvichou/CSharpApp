@@ -8,35 +8,55 @@ namespace CSharpApp
     public class Easy
     {
         //1. Two Sum
+        //Array, Hash Table
         public int[] TwoSum(int[] nums, int target)
         {
-            var answers = new List<Array>();
-            int num1;
-            int num2;
+            //O(n)
 
-            for (int i = 0; i < nums.Count(); i++)
+            var numsList = nums.ToList();
+
+            for (int i = 0; i < numsList.Count; i++)
             {
-                num1 = nums[i];
-
-                for (int j = i + 1; j < nums.Count(); j++)
+                //遞迴依序尋找陣列是否存有 target - numsList[i] 的互補值
+                if (numsList.Contains(target - numsList[i]))
                 {
-                    num2 = nums[j];
-
-                    if (i > j)
+                    //檢查此值是否為同一個
+                    if (i != numsList.IndexOf(target - numsList[i]))
                     {
-                        break;
-                    }
-
-                    if ((num1 + num2) == target)
-                    {
-                        var array = new int[2] { i, j };
-
-                        answers.Add(array);
+                        return new int[2] { i, numsList.IndexOf(target - numsList[i]) };
                     }
                 }
             }
 
-            return (int[])answers[0];
+            return new int[2];
+        }
+
+        //167. Two Sum II - Input array is sorted
+        //Array, Two Pointer, Binary Search
+        public int[] TwoSumSorted(int[] numbers, int target)
+        {
+            var left = 0;
+            var right = numbers.Length - 1;
+
+            while (left != right)
+            {
+                var sum = numbers[left] + numbers[right];
+
+                if (sum == target)
+                {
+                    return new int[2] { left + 1, right + 1 };
+                }
+                else if (numbers[left] + numbers[right] < target)
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
+                }
+            }
+
+            return new int[2];
         }
 
         //7. Reverse Integer
@@ -282,6 +302,32 @@ namespace CSharpApp
             }
 
             return result;
+        }
+
+        //53. Maximum Subarray
+        //Greedy
+        public int MaxSubArray(int[] nums)
+        {
+            int sum = 0;
+            int maxSum = nums[0];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                sum += nums[i];
+
+                //如果這個元素比先前的總和還大，那直接把先前捨棄，改從此元素開始
+                if (nums[i] > sum)
+                {
+                    sum = nums[i];
+                }
+
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
+                }
+            }
+
+            return maxSum;
         }
     }
 }
